@@ -1,0 +1,149 @@
+intents:
+  - greet
+  - goodbye
+  - new_dress
+  - affirm
+  - chest_entry
+  - height_entry
+  - weight_entry
+  - patterns
+  - clothtype
+  - fittings
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+entities:
+  - chest
+  - height
+  - weight
+  - clothtype_value
+  - patterns_value
+  - fittings_value
+
+slots:
+  chest:
+    type: unfeaturized
+    auto_fill: False
+  height:
+    type: unfeaturized
+    auto_fill: False
+  weight:
+    type: unfeaturized
+    auto_fill: False
+  clothtype_value:
+    type: categorical
+    values:
+      - formal
+      - casual
+  patterns_value:
+    type: categorical
+    values:
+      - floral
+      - plain
+  fittings_value:
+    type: categorical
+    values:
+      - loose
+      - slim
+
+actions:
+  - action_tag_types1
+
+responses:
+  utter_greet:
+    - text: "Hey! I am your personal AI stylist. I can recommend you clothes according to your preferences and sizes. How may I help you today?"
+
+  utter_newdress:
+    - text: "Great! I can find perfect dresses for you. Can I ask you a couple of quick questions to help me show you more personalized recommendations."
+
+  utter_know:
+    - text: "let me know your body type."
+
+  utter_ask_chest:
+    - text: "What is your chest size?"
+
+  utter_ask_height:
+    - text: "your height cms?"
+
+  utter_ask_weight:
+    - text: "your weight in lbs?"
+
+  utter_done:
+    - text: "great we are done! your bodytype is: {chest} and your size is: {height}"
+
+  utter_ask_clothtype:
+    - text: "Great! any suggestions for the type of clothes your prefer or some specific patterns you like?"
+      buttons:
+        - title: "formal wear"
+          payload: '/clothtype{{"clothtype_value":"formal"}}'
+        - title: "casual wear"
+          payload: '/clothtype{{"clothtype_value":"casual"}}'
+
+  utter_ask_patterns:
+    - text: "Any specific patterns you like?"
+      buttons:
+        - title: "floral print"
+          payload: '/patterns{{"patterns_value":"floral"}}'
+        - title: "plain"
+          payload: '/patterns{{"patterns_value":"plain"}}'
+
+  utter_ask_fittings:
+    - text: "What fittings you prefer?"
+      buttons:
+        - title: "loose_fitting"
+          payload: '/fittings{{"fittings_value":"loose"}}'
+        - title: "slim_fitting"
+          payload: '/fittings{{"fittings_value":"slim"}}'
+
+  utter_image1:
+    - text: "Here is your dress:"
+      image: "https://pc-ap.rtrcdn.com/productimages/nomodel/1080x/cf/WVG151.jpg"
+
+  utter_image2:
+    - text: "Here is your dress:"
+      image: "https://pc-ap.rtrcdn.com/productimages/nomodel/1080x/51/JWC25.jpg"
+
+  utter_image3:
+    - text: "Here is your dress:"
+      image: "https://pc-ap.rtrcdn.com/productimages/nomodel/1080x/51/JWC25.jpg"
+
+  utter_image4:
+    - text: "Here is your dress:"
+      image: "https://imgur.com/K9gcF6L"
+
+  utter_image5:
+    - text: "Here is your dress:"
+      image: "https://imgur.com/BD8JTa2"
+
+  utter_image6:
+    - text: "Here is your dress:"
+      image: "https://pc-ap.rtrcdn.com/productimages/nomodel/1080x/d2/MISA44.jpg"
+
+  utter_image7:
+    - text: "Here is your dress:"
+      image: "https://imgur.com/SSWUTmm"
+
+  utter_image8:
+    - text: "Here is your dress:"
+      image: "https://pc-ap.rtrcdn.com/productimages/nomodel/1080x/22/ALC164.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_iamabot:
+    - text: "I am your personal AI stylist."
+
+forms:
+  - size_form
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
